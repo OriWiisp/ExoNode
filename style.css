@@ -1,0 +1,54 @@
+/* Basic styling for VEXOGA website */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #1e2a47;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+section {
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 1000px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #1e2a47;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
