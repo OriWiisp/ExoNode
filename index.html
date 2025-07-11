@@ -13,8 +13,12 @@
     <!-- Header Section -->
     <header>
         <div class="navbar">
-            <h1>VEXOGA Dashboard</h1>
+            <h1>VEXOGA OS</h1>
             <p class="tagline">The Next Generation of Virtualization</p>
+            <div class="search-container">
+                <input type="text" placeholder="Search System..." class="search-bar">
+                <button class="search-button">Search</button>
+            </div>
             <div class="user-profile">
                 <span>Welcome, Admin</span>
                 <img src="https://www.w3schools.com/w3images/avatar2.png" alt="User Profile">
@@ -25,52 +29,62 @@
     <!-- Main Content Sections -->
     <main>
         <section class="dashboard-container">
-            <!-- Cluster and VM Management -->
-            <div class="system-info">
+            <div class="overview">
                 <h2>System Overview</h2>
-                <div class="overview-card">
-                    <div class="stat">
-                        <span class="stat-title">Active VMs</span>
-                        <span class="stat-value">12</span>
+                <div class="stat-cards">
+                    <div class="stat-card">
+                        <h3>Active VMs</h3>
+                        <p class="stat-value">12</p>
                     </div>
-                    <div class="stat">
-                        <span class="stat-title">Nodes Online</span>
-                        <span class="stat-value">4/5</span>
+                    <div class="stat-card">
+                        <h3>Online Nodes</h3>
+                        <p class="stat-value">4/5</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Cluster Health</h3>
+                        <p class="stat-value">95%</p>
                     </div>
                 </div>
             </div>
 
-            <!-- VM and Node Management -->
             <div class="management">
-                <h2>VM & Node Management</h2>
-                <div class="management-grid">
-                    <div class="node-info">
-                        <h3>Nodes</h3>
-                        <ul>
-                            <li>Node 1 - Online</li>
-                            <li>Node 2 - Online</li>
-                            <li>Node 3 - Offline</li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <h3>VM Management</h3>
+                    <ul>
+                        <li>VM 1 - Running</li>
+                        <li>VM 2 - Stopped</li>
+                        <li>VM 3 - Running</li>
+                    </ul>
+                    <button class="action-button">Manage VMs</button>
+                </div>
 
-                    <div class="vm-info">
-                        <h3>Virtual Machines</h3>
-                        <ul>
-                            <li>VM 1 - Running</li>
-                            <li>VM 2 - Stopped</li>
-                            <li>VM 3 - Running</li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <h3>Node Management</h3>
+                    <ul>
+                        <li>Node 1 - Online</li>
+                        <li>Node 2 - Online</li>
+                        <li>Node 3 - Offline</li>
+                    </ul>
+                    <button class="action-button">Manage Nodes</button>
                 </div>
             </div>
 
-            <!-- VM Control & Actions -->
-            <div class="vm-actions">
-                <h3>VM Actions</h3>
-                <button class="action-button">Start VM</button>
-                <button class="action-button">Stop VM</button>
-                <button class="action-button">Create New VM</button>
+            <div class="map-container">
+                <div class="map">
+                    <h3>Cluster Map</h3>
+                    <p>System Status: All Nodes Online</p>
+                    <div class="map-graphic">
+                        <!-- Here you could insert a visual map or graphic of the cluster -->
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <section class="actions">
+            <h3>Quick Actions</h3>
+            <button class="action-button">Start VM</button>
+            <button class="action-button">Stop VM</button>
+            <button class="action-button">Create New VM</button>
         </section>
     </main>
 
