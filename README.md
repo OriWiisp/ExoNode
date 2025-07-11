@@ -14,6 +14,7 @@ VEXOGA is designed for high-performance tasks and virtualization in a cluster en
 - **Command Line Interface (CLI)**: Control the system via a UART terminal.
 - **VM Networking**: Simulate network communication between virtual machines.
 - **Mouse and Keyboard Support**: Basic GUI interactivity with mouse clicks and keyboard input.
+- **Core Density**: 100000+ cores available in a 42u server rack
 
 ---
 
