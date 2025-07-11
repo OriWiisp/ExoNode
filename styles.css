@@ -12,19 +12,22 @@ body {
     line-height: 1.6;
 }
 
-/* Header Section */
+/* Header Styling */
 header {
     background: linear-gradient(135deg, #1e2a47, #0b1122);
     padding: 20px;
-    text-align: center;
     color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
-header .navbar h1 {
+header h1 {
     font-size: 2.5rem;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+    margin-right: 20px;
     letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 header .tagline {
@@ -34,9 +37,35 @@ header .tagline {
     margin-bottom: 20px;
 }
 
+header .search-container {
+    display: flex;
+    gap: 10px;
+}
+
+header .search-bar {
+    padding: 12px 20px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 8px;
+}
+
+header .search-button {
+    padding: 12px 20px;
+    background-color: #76e3f9;
+    color: #121212;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+header .search-button:hover {
+    background-color: #5cb4e5;
+}
+
 header .user-profile {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 10px;
 }
@@ -46,119 +75,105 @@ header .user-profile img {
     border-radius: 50%;
 }
 
-/* Main Content - Dashboard Container */
+/* Dashboard Section */
 .dashboard-container {
     display: flex;
     justify-content: space-between;
     gap: 30px;
     padding: 40px;
-    color: #b3b3b3;
 }
 
-.system-info {
+.overview {
     flex: 1;
 }
 
-.system-info h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.overview-card {
-    background-color: #2a2a2a;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-.stat {
-    margin-bottom: 15px;
-}
-
-.stat-title {
-    font-size: 1.2rem;
-    color: #76e3f9;
-}
-
-.stat-value {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-/* VM & Node Management */
-.management {
-    flex: 1;
-    background-color: #2a2a2a;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.management h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.management-grid {
-    display: flex;
-    justify-content: space-between;
+.stat-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.node-info, .vm-info {
-    background-color: #333;
-    padding: 15px;
-    border-radius: 8px;
-    flex: 1;
+.stat-card {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-h3 {
-    font-size: 1.4rem;
+.stat-card h3 {
     color: #76e3f9;
+    font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
-ul {
-    list-style-type: none;
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
 }
 
-ul li {
-    font-size: 1.1rem;
-    margin: 10px 0;
+.management {
+    flex: 2;
 }
 
-/* VM Control Actions */
-.vm-actions {
-    flex: 1;
-    background-color: #2a2a2a;
+.card {
+    background-color: #333;
     padding: 20px;
     border-radius: 8px;
+    margin-bottom: 20px;
 }
 
-.vm-actions h3 {
-    font-size: 1.5rem;
+.card h3 {
+    font-size: 1.4rem;
+    color: #76e3f9;
+    margin-bottom: 15px;
+}
+
+.card ul {
+    list-style: none;
     margin-bottom: 20px;
+}
+
+.card ul li {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
 .action-button {
     padding: 12px 20px;
     background-color: #76e3f9;
-    color: #1d1f27;
+    color: #121212;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 1.1rem;
-    transition: background-color 0.3s;
-    margin: 10px 0;
     width: 100%;
+    transition: background-color 0.3s;
 }
 
 .action-button:hover {
     background-color: #5cb4e5;
 }
 
-/* Footer Section */
+.map-container {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.map {
+    text-align: center;
+}
+
+.map-graphic {
+    width: 100%;
+    height: 300px;
+    background-color: #333;
+    margin-top: 20px;
+}
+
+/* Footer Styling */
 footer {
     background-color: #1e2a47;
     color: #b3b3b3;
@@ -168,20 +183,6 @@ footer {
     margin-top: 40px;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.fade-in {
-    animation: fadeIn 1s ease-out;
-}
-
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .dashboard-container {
@@ -189,17 +190,8 @@ footer {
         gap: 20px;
     }
 
-    .system-info, .management, .vm-actions {
-        margin-bottom: 20px;
-    }
-
-    .management-grid {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .action-button {
-        font-size: 1rem;
+    .stat-cards {
+        grid-template-columns: 1fr;
     }
 
     header h1 {
@@ -207,6 +199,10 @@ footer {
     }
 
     header .tagline {
-        font-size: 1.2rem;
+        font-size: 1rem;
+    }
+
+    .action-button {
+        font-size: 1rem;
     }
 }
