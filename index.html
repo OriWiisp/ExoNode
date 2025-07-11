@@ -4,55 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>VEXOGA - Operating System</title>
+    <title>VEXOGA OS</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Hero Section -->
     <header>
-        <div class="navbar">
-            <h1>VEXOGA OS</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#installation">Installation</a></li>
-                    <li><a href="#contribute">Contribute</a></li>
-                    <li><a href="https://github.com/yourusername/VEXOGA">GitHub</a></li>
-                </ul>
-            </nav>
+        <div class="hero">
+            <div class="hero-content">
+                <h1>VEXOGA OS</h1>
+                <p class="tagline">The Next Generation of Virtualization</p>
+                <a href="#about" class="cta-button">Learn More</a>
+            </div>
         </div>
     </header>
 
-    <section id="about">
-        <h2>About VEXOGA</h2>
-        <p>VEXOGA is an experimental operating system designed for RISC-V architecture, enabling high-performance virtualization and cluster management...</p>
-    </section>
+    <!-- Main Content Sections -->
+    <main>
+        <section id="about" class="section fade-in">
+            <h2>About VEXOGA</h2>
+            <p>VEXOGA is an experimental operating system designed for RISC-V architecture, enabling high-performance virtualization and cluster management. It simplifies managing EXOVega processor nodes and virtual machines (VMs), optimized for distributed computing tasks.</p>
+        </section>
 
-    <section id="features">
-        <h2>Features</h2>
-        <ul>
-            <li>Cluster Management</li>
-            <li>Virtual Machine Management</li>
-            <li>Graphical User Interface (GUI)</li>
-            <li>Command Line Interface (CLI)</li>
-            <li>VM Networking</li>
-        </ul>
-    </section>
+        <section id="features" class="section fade-in">
+            <h2>Features</h2>
+            <div class="feature-list">
+                <div class="feature">
+                    <h3>Cluster Management</h3>
+                    <p>Control and monitor the status of EXOVega processor nodes for seamless operation.</p>
+                </div>
+                <div class="feature">
+                    <h3>Virtual Machine Management</h3>
+                    <p>Create, delete, and manage virtual machines running on the system with ease.</p>
+                </div>
+                <div class="feature">
+                    <h3>Graphical User Interface</h3>
+                    <p>A sleek, real-time dashboard for VM and cluster status monitoring.</p>
+                </div>
+                <div class="feature">
+                    <h3>Command Line Interface</h3>
+                    <p>For advanced users, manage the system via a powerful CLI.</p>
+                </div>
+                <div class="feature">
+                    <h3>VM Networking</h3>
+                    <p>Enables network communication between virtual machines in the system.</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="installation">
-        <h2>Installation</h2>
-        <p>To install VEXOGA, follow the instructions in the [Getting Started](https://github.com/yourusername/VEXOGA#getting-started) section on the GitHub repository.</p>
-    </section>
+        <section id="installation" class="section fade-in">
+            <h2>Installation</h2>
+            <p>To install VEXOGA, follow the detailed instructions in the <a href="https://github.com/yourusername/VEXOGA#getting-started">GitHub repository</a>.</p>
+        </section>
 
-    <section id="contribute">
-        <h2>Contribute</h2>
-        <p>We welcome contributions to VEXOGA! If you'd like to help improve the project, please fork the repository and create a pull request.</p>
-    </section>
+        <section id="contribute" class="section fade-in">
+            <h2>Contribute</h2>
+            <p>We welcome contributions! If you'd like to improve VEXOGA, fork the repository and submit a pull request. Help us shape the future of virtualization.</p>
+        </section>
+    </main>
 
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 VEXOGA OS. All Rights Reserved.</p>
     </footer>
 
+    <!-- Scroll to top button -->
+    <a href="#top" class="scroll-top">↑</a>
 </body>
 </html>
