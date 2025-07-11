@@ -4,64 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>VEXOGA OS</title>
+    <title>VEXOGA OS - Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Hero Section -->
+    <!-- Header Section -->
     <header>
-        <div class="hero">
-            <div class="hero-content">
-                <h1>VEXOGA OS</h1>
-                <p class="tagline">The Next Generation of Virtualization</p>
-                <a href="#about" class="cta-button">Learn More</a>
+        <div class="navbar">
+            <h1>VEXOGA Dashboard</h1>
+            <p class="tagline">The Next Generation of Virtualization</p>
+            <div class="user-profile">
+                <span>Welcome, Admin</span>
+                <img src="https://www.w3schools.com/w3images/avatar2.png" alt="User Profile">
             </div>
         </div>
     </header>
 
     <!-- Main Content Sections -->
     <main>
-        <section id="about" class="section fade-in">
-            <h2>About VEXOGA</h2>
-            <p>VEXOGA is an experimental operating system designed for RISC-V architecture, enabling high-performance virtualization and cluster management. It simplifies managing EXOVega processor nodes and virtual machines (VMs), optimized for distributed computing tasks.</p>
-        </section>
-
-        <section id="features" class="section fade-in">
-            <h2>Features</h2>
-            <div class="feature-list">
-                <div class="feature">
-                    <h3>Cluster Management</h3>
-                    <p>Control and monitor the status of EXOVega processor nodes for seamless operation.</p>
-                </div>
-                <div class="feature">
-                    <h3>Virtual Machine Management</h3>
-                    <p>Create, delete, and manage virtual machines running on the system with ease.</p>
-                </div>
-                <div class="feature">
-                    <h3>Graphical User Interface</h3>
-                    <p>A sleek, real-time dashboard for VM and cluster status monitoring.</p>
-                </div>
-                <div class="feature">
-                    <h3>Command Line Interface</h3>
-                    <p>For advanced users, manage the system via a powerful CLI.</p>
-                </div>
-                <div class="feature">
-                    <h3>VM Networking</h3>
-                    <p>Enables network communication between virtual machines in the system.</p>
+        <section class="dashboard-container">
+            <!-- Cluster and VM Management -->
+            <div class="system-info">
+                <h2>System Overview</h2>
+                <div class="overview-card">
+                    <div class="stat">
+                        <span class="stat-title">Active VMs</span>
+                        <span class="stat-value">12</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-title">Nodes Online</span>
+                        <span class="stat-value">4/5</span>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section id="installation" class="section fade-in">
-            <h2>Installation</h2>
-            <p>To install VEXOGA, follow the detailed instructions in the <a href="https://github.com/yourusername/VEXOGA#getting-started">GitHub repository</a>.</p>
-        </section>
+            <!-- VM and Node Management -->
+            <div class="management">
+                <h2>VM & Node Management</h2>
+                <div class="management-grid">
+                    <div class="node-info">
+                        <h3>Nodes</h3>
+                        <ul>
+                            <li>Node 1 - Online</li>
+                            <li>Node 2 - Online</li>
+                            <li>Node 3 - Offline</li>
+                        </ul>
+                    </div>
 
-        <section id="contribute" class="section fade-in">
-            <h2>Contribute</h2>
-            <p>We welcome contributions! If you'd like to improve VEXOGA, fork the repository and submit a pull request. Help us shape the future of virtualization.</p>
+                    <div class="vm-info">
+                        <h3>Virtual Machines</h3>
+                        <ul>
+                            <li>VM 1 - Running</li>
+                            <li>VM 2 - Stopped</li>
+                            <li>VM 3 - Running</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VM Control & Actions -->
+            <div class="vm-actions">
+                <h3>VM Actions</h3>
+                <button class="action-button">Start VM</button>
+                <button class="action-button">Stop VM</button>
+                <button class="action-button">Create New VM</button>
+            </div>
         </section>
     </main>
 
@@ -70,7 +79,5 @@
         <p>&copy; 2025 VEXOGA OS. All Rights Reserved.</p>
     </footer>
 
-    <!-- Scroll to top button -->
-    <a href="#top" class="scroll-top">↑</a>
 </body>
 </html>
