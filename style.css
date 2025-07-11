@@ -1,4 +1,4 @@
-/* Basic styling for VEXOGA website */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,49 +6,193 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #e6e6e6;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
+/* Hero Section */
 header {
-    background-color: #1e2a47;
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e2a47, #0b1122);
     color: white;
-    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    animation: fadeIn 1.5s ease-out;
 }
 
-.navbar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.navbar ul li {
-    display: inline;
-    margin-right: 15px;
-}
-
-.navbar ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-h1, h2 {
-    margin-bottom: 20px;
-}
-
-section {
-    padding: 20px;
-    margin: 10px auto;
-    max-width: 1000px;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #1e2a47;
-    color: white;
-    position: fixed;
-    bottom: 0;
+.hero {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background: url('https://www.example.com/hero-bg.jpg') center/cover no-repeat;
+    filter: brightness(0.6);
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 1.8rem;
+    font-family: 'Space Mono', monospace;
+    margin-bottom: 30px;
+    font-style: italic;
+    color: #76e3f9;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #76e3f9;
+    color: #121212;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #5cb4e5;
+}
+
+/* Section Styling */
+main {
+    padding: 50px 20px;
+    background-color: #181818;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #f5f5f5;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section {
+    margin-bottom: 60px;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+
+.fade-in {
+    animation: fadeInUp 1s forwards;
+}
+
+/* Feature List Styling */
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.feature {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.feature h3 {
+    color: #76e3f9;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    color: #b3b3b3;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Footer Section */
+footer {
+    background-color: #1e2a47;
+    color: #b3b3b3;
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Scroll to Top Button */
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background-color: #76e3f9;
+    color: #121212;
+    padding: 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.scroll-top:hover {
+    transform: translateY(-5px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header .tagline {
+        font-size: 1.2rem;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
 }
