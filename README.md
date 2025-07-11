@@ -1,8 +1,8 @@
-# VEXOGA Operating System
+# ExoNode for Quantum compatibility layer
 
-**VEXOGA** is an experimental operating system designed to run on **RISC-V architecture**. It enables distributed computing by managing a cluster of **EXOVega processor cards** and their **virtual machines (VMs)**. It also features a **CLI** and a **GUI** for managing the cluster, VMs, and more.
+**ExoNode for Quantum** is an experimental compatibility layer designed to run on **RISC-V architecture**. It enables distributed computing by managing a cluster of **QUANTUM-V Processor nodes**. It also features a **CLI** and a **GUI** for managing the cluster, VMs over Quantum, and more.
 
-VEXOGA is designed for high-performance tasks and virtualization in a cluster environment. It leverages PCIe communication for managing multiple nodes and VMs, and includes basic virtualization support.
+ExoNode for Quantum is designed for high-performance tasks and virtualization in a cluster environment. It leverages PCIe communication for managing multiple nodes and VMs over Quantum, and includes basic virtualization support.
 
 ---
 
@@ -23,7 +23,7 @@ VEXOGA is designed for high-performance tasks and virtualization in a cluster en
 ### Hardware Requirements
 
 - **RISC-V Processor**: A compatible RISC-V-based processor.
-- **EXOVega Cards**: Cluster nodes running EXOVega processors connected via PCIe.
+- **QUANTUM-V Cards**: Cluster nodes running EXOVega processors connected via PCIe.
 - **Controller Card**: A central card communicating with EXOVega processor nodes over PCIe.
 - **Display**: For GUI visualization (HDMI, VGA, etc.).
 - **Mouse & Keyboard**: For GUI interaction.
@@ -38,7 +38,7 @@ VEXOGA is designed for high-performance tasks and virtualization in a cluster en
      ```
 
 2. **Install `riscv32` Target**:
-   - VEXOGA is designed to run on a 32-bit RISC-V architecture. You need to install the target:
+   - ExoNode for Quantum is designed to run on a 32-bit RISC-V architecture. You need to install the target:
      ```bash
      rustup target add riscv32imac-unknown-none-elf
      ```
@@ -53,10 +53,10 @@ VEXOGA is designed for high-performance tasks and virtualization in a cluster en
 
 ## System Architecture
 
-VEXOGA operates on a **controller card** that communicates over **PCIe** with multiple **EXOVega cards**, each hosting several **RISC-V MCU processor cores**.
+ExoNode for Quantum operates on a **controller card** that communicates over **PCIe** with multiple **EXOVega cards**, each hosting several **RISC-V MCU processor cores**.
 
 - **Controller Card**: This card manages the cluster and runs the VEXOGA OS.
-- **EXOVega Processor Nodes**: Each node is a processing unit that may host several VMs.
+- **QUANTUM-V Processor Nodes**: Each node is a processing unit that may host several VMs.
 - **Virtual Machines**: VMs run on EXOVega processors, with simple networking between them.
 
 ---
