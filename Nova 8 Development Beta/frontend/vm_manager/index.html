@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Project Nova Pro VM Manager</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #1e1e1e;
+    color: #eee;
+  }
+  h1 {
+    text-align: center;
+    color: #4caf50;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    background: #2d2d2d;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #444;
+    text-align: center;
+  }
+  th {
+    background-color: #333;
+  }
+  tr:hover {
+    background-color: #444;
+  }
+  button {
+    padding: 6px 12px;
+    margin: 0 4px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  button.start {
+    background-color: #4caf50;
+    color: white;
+  }
+  button.stop {
+    background-color: #f44336;
+    color: white;
+  }
+  button.delete {
+    background-color: #ff9800;
+    color: white;
+  }
+  button.create {
+    margin-top: 10px;
+    background-color: #2196f3;
+    color: white;
+  }
+  #create-vm-form {
+    margin-top: 20px;
+    text-align: center;
+  }
+  input[type="number"], input[type="text"] {
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #666;
+    width: 100px;
+    margin-right: 10px;
+  }
+  #status-message {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>Project Nova Pro VM Manager</h1>
+
+<button onclick="refreshVMs()">Refresh VM List</button>
+
+<table id="vm-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Label</th>
+      <th>State</th>
+      <th>Active</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<div id="create-vm-form">
+  <input type="number" id="new-vm-id" placeholder="VM ID" min="0" max="1023" />
+  <input type="text" id="new-vm-label" placeholder="VM Label" />
+  <button class="create" onclick="createVM()">Create VM</button>
+</div>
+
+<div id="status-message"></div>
+
+<script>
+const API_BASE = 'http://localhost:3030/vms';
+
+async function fetchVMs() {
+  try {
+    const res = await fetch(API_BASE);
+    if (!res.ok) throw new Error('Failed to fetch VMs');
+    return await res.json();
+  } catch (err) {
+    showStatus(err.message, true);
+    return [];
+  }
+}
+
+async function refreshVMs() {
+  clearStatus();
+  const vmList = await fetchVMs();
+  const tbody = document.querySelector('#vm-table tbody');
+  tbody.innerHTML = '';
+
+  vmList.forEach(vm => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${vm.id}</td>
+      <td>${vm.label}</td>
+      <td>${vm.state}</td>
+      <td>${vm.active}</td>
+      <td>
+        <button class="start" onclick="startVM(${vm.id})">Start</button>
+        <button class="stop" onclick="stopVM(${vm.id})">Stop</button>
+        <button class="delete" onclick="deleteVM(${vm.id})">Delete</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+async function postAction(endpoint, data) {
+  try {
+    const res = await fetch(`${API_BASE}/${endpoint}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(text || 'Server error');
+    }
+    showStatus(`${endpoint.charAt(0).toUpperCase() + endpoint.slice(1)} successful`);
+    refreshVMs();
+  } catch (err) {
+    showStatus(err.message, true);
+  }
+}
+
+function showStatus(msg, isError = false) {
+  const statusDiv = document.getElementById('status-message');
+  statusDiv.textContent = msg;
+  statusDiv.style.color = isError ? '#f44336' : '#4caf50';
+}
+
+function clearStatus() {
+  const statusDiv = document.getElementById('status-message');
+  statusDiv.textContent = '';
+}
+
+async function startVM(id) {
+  clearStatus();
+  await postAction('start', { id });
+}
+
+async function stopVM(id) {
+  clearStatus();
+  await postAction('stop', { id });
+}
+
+async function deleteVM(id) {
+  if (!confirm(`Are you sure you want to delete VM ${id}?`)) return;
+  clearStatus();
+  await postAction('delete', { id });
+}
+
+async function createVM() {
+  clearStatus();
+  const idInput = document.getElementById('new-vm-id');
+  const labelInput = document.getElementById('new-vm-label');
+  const id = parseInt(idInput.value);
+  const label = labelInput.value.trim();
+
+  if (isNaN(id) || id < 0 || id > 1023) {
+    showStatus('Please enter a valid VM ID (0-1023)', true);
+    return;
+  }
+  if (!label) {
+    showStatus('Please enter a VM label', true);
+    return;
+  }
+
+  await postAction('create', { id, label });
+
+  idInput.value = '';
+  labelInput.value = '';
+}
+
+refreshVMs();
+</script>
+
+</body>
+</html>
